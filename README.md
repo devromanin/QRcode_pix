@@ -19,6 +19,7 @@ O pagamento pode ser acessado por uma rota específica
 Uma página HTML exibe o QR Code, valor e tempo de expiração
 
 Como rodar o projeto
+
 1️⃣ Clonar o repositório
 git clone https://github.com/devromanin/QRcode_pix.git
 cd QRcode_pix
