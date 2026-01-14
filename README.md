@@ -21,10 +21,12 @@ Uma página HTML exibe o QR Code, valor e tempo de expiração
 Como rodar o projeto
 
 1️⃣ Clonar o repositório
+
 git clone https://github.com/devromanin/QRcode_pix.git
 cd QRcode_pix
 
 2️⃣ Criar ambiente virtual
+
 python -m venv venv
 
 Ativar o ambiente virtual:
@@ -38,16 +40,21 @@ Linux / Mac:
 source venv/bin/activate
 
 3️⃣ Instalar dependências
+
 pip install -r requirements.txt
 
 4️⃣ Rodar a aplicação
+
 python app.py
 
 A aplicação ficará disponível em:
+
 http://127.0.0.1:5000
 
 📡 Endpoints disponíveis
+
 🔹 Criar pagamento Pix
+
 POST /payments/pix
 Body JSON esperado:
 {
@@ -56,18 +63,22 @@ Body JSON esperado:
 Cria um novo pagamento e retorna os dados salvos no banco.
 
 🔹 Visualizar pagamento Pix
+
 GET /payments/pix/<payment_id>
 
 Exemplo:
+
 http://127.0.0.1:5000/payments/pix/1
 
 Exibe uma página HTML com:
+
 QR Code
 Valor da compra
 Tempo de expiração
 Número do pedido
 
 🔹 Webhook de confirmação (mock)
+
 POST /payments/pix/confirmation
 Atualmente retorna apenas uma mensagem fixa.
 Serve como base para futuras integrações com sistemas externos.
