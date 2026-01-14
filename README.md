@@ -1,84 +1,98 @@
-QRcode_pix
-Projeto backend simples em Python + Flask para criação e exibição de pagamentos via Pix com QR Code, utilizando SQLite como banco de dados.
-O foco do projeto é simular o fluxo de criação de um pagamento Pix e exibir uma página com o QR Code para pagamento.
+# QRcode_pix
 
-Para que serve
-Esse projeto serve para:
-Estudar Flask e SQLAlchemy
-Simular pagamentos via Pix
-Criar endpoints REST
-Renderizar páginas HTML com dados dinâmicos
-Trabalhar com banco SQLite em projetos pequenos
-Não há integração real com bancos ou APIs de pagamento. É um mock funcional para estudo.
+API backend em **Python + Flask** que simula **pagamentos via Pix com QR Code**, utilizando **SQLite** e **SQLAlchemy**.
 
-Como funciona
-O usuário faz um POST informando o valor do pagamento
-O backend cria um pagamento no banco de dados
-Um ID único é gerado automaticamente
-O pagamento pode ser acessado por uma rota específica
-Uma página HTML exibe o QR Code, valor e tempo de expiração
+Projeto focado em backend: criação de pagamentos, persistência em banco e renderização de página HTML com dados dinâmicos.
 
-Como rodar o projeto
+---
 
-1️⃣ Clonar o repositório
+## O que esse projeto faz
 
-git clone https://github.com/devromanin/QRcode_pix.git
-cd QRcode_pix
+- Cria pagamentos Pix via API
+- Salva os dados no banco SQLite
+- Gera um ID único para cada pagamento
+- Exibe uma página HTML com QR Code, valor e tempo de expiração
+- Simula um webhook de confirmação
 
-2️⃣ Criar ambiente virtual
+Não há integração real com bancos ou APIs financeiras. É um projeto educacional e de portfólio.
 
-python -m venv venv
+---
 
-Ativar o ambiente virtual:
+## Como funciona
 
-Windows:
+1. O cliente envia uma requisição POST com o valor do pagamento
+2. O backend valida os dados recebidos
+3. O pagamento é salvo no banco de dados
+4. Um ID único é gerado automaticamente
+5. O pagamento pode ser acessado por uma rota específica
+6. Uma página HTML exibe o QR Code e as informações do Pix
 
-venv\Scripts\activate
+---
 
-Linux / Mac:
+## Como rodar o projeto
 
-source venv/bin/activate
+1. Clone o repositório
 
-3️⃣ Instalar dependências
+   git clone https://github.com/devromanin/QRcode_pix.git
+   cd QRcode_pix
 
-pip install -r requirements.txt
+2. Crie um ambiente virtual
 
-4️⃣ Rodar a aplicação
+   python -m venv venv
 
-python app.py
+   Ative o ambiente:
+
+   Windows:
+   venv\Scripts\activate
+
+   Linux / Mac:
+   source venv/bin/activate
+
+3. Instale as dependências
+
+   pip install -r requirements.txt
+
+4. Execute a aplicação
+
+   python app.py
 
 A aplicação ficará disponível em:
-
 http://127.0.0.1:5000
 
-📡 Endpoints disponíveis
+---
 
-🔹 Criar pagamento Pix
+## Endpoints
 
+Criar pagamento Pix  
 POST /payments/pix
-Body JSON esperado:
+
+Corpo da requisição (JSON):
 {
-"value": 150.50
+  "value": 150.50
 }
-Cria um novo pagamento e retorna os dados salvos no banco.
 
-🔹 Visualizar pagamento Pix
+---
 
+Visualizar pagamento Pix  
 GET /payments/pix/<payment_id>
 
-Exemplo:
+Exibe a página HTML com:
+- QR Code
+- Valor da compra
+- Tempo de expiração
+- Número do pedido
 
-http://127.0.0.1:5000/payments/pix/1
+---
 
-Exibe uma página HTML com:
-
-QR Code
-Valor da compra
-Tempo de expiração
-Número do pedido
-
-🔹 Webhook de confirmação (mock)
-
+Webhook de confirmação (mock)  
 POST /payments/pix/confirmation
-Atualmente retorna apenas uma mensagem fixa.
-Serve como base para futuras integrações com sistemas externos.
+
+Endpoint placeholder para futuras integrações.
+
+---
+
+## Banco de dados
+
+- Banco: SQLite
+- Arquivo: database.db
+- ORM: SQLAlchemy
