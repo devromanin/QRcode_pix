@@ -1,0 +1,16 @@
+# Ambiente virtual
+.venv/
+venv/
+
+# Cache Python
+__pycache__/
+*.pyc
+
+# Variáveis de ambiente
+.env
+
+# Banco SQLite
+database.db
+
+# VS Code
+.vscode/
